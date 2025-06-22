@@ -16,10 +16,10 @@
 </div>
 
 <div style="text-align: center;">
-    <h1>Mambular: Tabular Deep Learning Made Simple</h1>
+    <h1>DeepTabular: Tabular Deep Learning Made Simple</h1>
 </div>
 
-Mambular is a Python library for tabular deep learning. It includes models that leverage the Mamba (State Space Model) architecture, as well as other popular models like TabTransformer, FTTransformer, TabM and tabular ResNets. Check out our paper `Mambular: A Sequential Model for Tabular Deep Learning`, available [here](https://arxiv.org/abs/2408.06291). Also check out our paper introducing [TabulaRNN](https://arxiv.org/pdf/2411.17207) and analyzing the efficiency of NLP inspired tabular models.
+DeepTabular is a Python library for tabular deep learning. It includes models that leverage the Mamba (State Space Model) architecture, as well as other popular models like TabTransformer, FTTransformer, TabM and tabular ResNets. Check out our paper `Mambular: A Sequential Model for Tabular Deep Learning`, available [here](https://arxiv.org/abs/2408.06291). Also check out our paper introducing [TabulaRNN](https://arxiv.org/pdf/2411.17207) and analyzing the efficiency of NLP inspired tabular models.
 
 <h3>⚡ What's New ⚡</h3>
 <ul>
@@ -60,7 +60,7 @@ model.fit(X, y, max_epochs=150, lr=1e-04)
 ```
 
 # 📖 Introduction
-Mambular is a Python package that brings the power of advanced deep learning architectures to tabular data, offering a suite of models for regression, classification, and distributional regression tasks. Designed with ease of use in mind, Mambular models adhere to scikit-learn's `BaseEstimator` interface, making them highly compatible with the familiar scikit-learn ecosystem. This means you can fit, predict, and evaluate using Mambular models just as you would with any traditional scikit-learn model, but with the added performance and flexibility of deep learning.
+DeepTabular is a Python package that brings the power of advanced deep learning architectures to tabular data, offering a suite of models for regression, classification, and distributional regression tasks. Designed with ease of use in mind, DeepTabular models adhere to scikit-learn's `BaseEstimator` interface, making them highly compatible with the familiar scikit-learn ecosystem. This means you can fit, predict, and evaluate using DeepTabular models just as you would with any traditional scikit-learn model, but with the added performance and flexibility of deep learning.
 
 
 # 🤖 Models
@@ -94,11 +94,11 @@ Hence, they are available as e.g. `MambularRegressor`, `MambularClassifier` or `
 
 # 📚 Documentation
 
-You can find the Mamba-Tabular API documentation [here](https://mambular.readthedocs.io/en/latest/).
+You can find the DeepTabular API documentation [here](https://mambular.readthedocs.io/en/latest/).
 
 # 🛠️ Installation
 
-Install Mambular using pip:
+Install DeepTabular using pip:
 ```sh
 pip install mambular
 ```
@@ -120,7 +120,7 @@ pip install mamba-ssm
 
 <h2> Preprocessing </h2>
 
-Mambular uses pretab preprocessing: https://github.com/OpenTabular/PreTab
+DeepTabular uses pretab preprocessing: https://github.com/OpenTabular/PreTab
 
 Hence, datatypes etc. are detected automatically and all preprocessing methods from pretab as well as from Sklearn.preprocessing are available.
 Additionally, you can specify that each feature is preprocessed differently, according to your requirements, by setting the `feature_preprocessing={}`argument during model initialization.
@@ -305,11 +305,11 @@ model.fit(
 
 # 💻 Implement Your Own Model
 
-Mambular allows users to easily integrate their custom models into the existing logic. This process is designed to be straightforward, making it simple to create a PyTorch model and define its forward pass. Instead of inheriting from `nn.Module`, you inherit from Mambular's `BaseModel`. Each Mambular model takes three main arguments: the number of classes (e.g., 1 for regression or 2 for binary classification), `cat_feature_info`, and `num_feature_info` for categorical and numerical feature information, respectively. Additionally, you can provide a config argument, which can either be a custom configuration or one of the provided default configs.
+DeepTabular allows users to easily integrate their custom models into the existing logic. This process is designed to be straightforward, making it simple to create a PyTorch model and define its forward pass. Instead of inheriting from `nn.Module`, you inherit from DeepTabular's `BaseModel`. Each DeepTabular model takes three main arguments: the number of classes (e.g., 1 for regression or 2 for binary classification), `cat_feature_info`, and `num_feature_info` for categorical and numerical feature information, respectively. Additionally, you can provide a config argument, which can either be a custom configuration or one of the provided default configs.
 
-One of the key advantages of using Mambular is that the inputs to the forward passes are lists of tensors. While this might be unconventional, it is highly beneficial for models that treat different data types differently. For example, the TabTransformer model leverages this feature to handle categorical and numerical data separately, applying different transformations and processing steps to each type of data.
+One of the key advantages of using DeepTabular is that the inputs to the forward passes are lists of tensors. While this might be unconventional, it is highly beneficial for models that treat different data types differently. For example, the TabTransformer model leverages this feature to handle categorical and numerical data separately, applying different transformations and processing steps to each type of data.
 
-Here's how you can implement a custom model with Mambular:
+Here's how you can implement a custom model with DeepTabular:
 
 1. **First, define your config:**  
    The configuration class allows you to specify hyperparameters and other settings for your model. This can be done using a simple dataclass.
@@ -372,8 +372,8 @@ Here's how you can implement a custom model with Mambular:
            return output
    ```
 
-3. **Leverage the Mambular API:**  
-   You can build a regression, classification, or distributional regression model that can leverage all of Mambular's built-in methods by using the following:
+3. **Leverage the DeepTabular API:**  
+   You can build a regression, classification, or distributional regression model that can leverage all of DeepTabular's built-in methods by using the following:
 
    ```python
    from mambular.models.utils import SklearnBaseRegressor
@@ -384,7 +384,7 @@ Here's how you can implement a custom model with Mambular:
    ```
 
 4. **Train and evaluate your model:**  
-   You can now fit, evaluate, and predict with your custom model just like with any other Mambular model. For classification or distributional regression, inherit from `SklearnBaseClassifier` or `SklearnBaseLSS` respectively.
+   You can now fit, evaluate, and predict with your custom model just like with any other DeepTabular model. For classification or distributional regression, inherit from `SklearnBaseClassifier` or `SklearnBaseLSS` respectively.
 
    ```python
    regressor = MyRegressor(numerical_preprocessing="ple")
