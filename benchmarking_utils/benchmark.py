@@ -122,7 +122,6 @@ if __name__ == '__main__':
         # print(f'{x}:{dataset.metadata.name}')
         print(f'{dataset.metadata.name}')
 
-
         if args.tune:
             (study, saved_path) = tune_hyper_parameters(
                 model_name=args.model_name, 
@@ -149,8 +148,8 @@ if __name__ == '__main__':
             start_time = time.time()
 
             model.fit(
-                X_train[:10], 
-                y_train[:10], 
+                X_train, 
+                y_train, 
                 max_epochs = args.max_epochs
             )    
 

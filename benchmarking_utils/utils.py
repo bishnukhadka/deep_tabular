@@ -272,12 +272,12 @@ def objective_factory(
         )
 
         model.fit(
-            X_train[:10], y_train[:10],
+            X_train, y_train,
             max_epochs=max_epochs,
             **params['training']
         )
 
-        result = model.evaluate(X_val[:10], y_val[:10])
+        result = model.evaluate(X_val, y_val)
         log_trial(log_file, trial.number, params, result)
         if task=="regression":
             return result['Mean Squared Error']
